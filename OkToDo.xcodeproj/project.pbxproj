@@ -1,0 +1,704 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D59BA46B275813EE00A91AD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA46A275813EE00A91AD9 /* AppDelegate.swift */; };
+		D59BA46D275813EE00A91AD9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA46C275813EE00A91AD9 /* SceneDelegate.swift */; };
+		D59BA475275813EE00A91AD9 /* OkToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D59BA473275813EE00A91AD9 /* OkToDo.xcdatamodeld */; };
+		D59BA477275813EF00A91AD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D59BA476275813EF00A91AD9 /* Assets.xcassets */; };
+		D59BA47A275813EF00A91AD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59BA478275813EF00A91AD9 /* LaunchScreen.storyboard */; };
+		D59BA485275813EF00A91AD9 /* OkToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA484275813EF00A91AD9 /* OkToDoTests.swift */; };
+		D59BA48F275813EF00A91AD9 /* OkToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA48E275813EF00A91AD9 /* OkToDoUITests.swift */; };
+		D59BA491275813EF00A91AD9 /* OkToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA490275813EF00A91AD9 /* OkToDoUITestsLaunchTests.swift */; };
+		D59BA4A127582A1300A91AD9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4A027582A1300A91AD9 /* MainViewController.swift */; };
+		D59BA4A327582BBB00A91AD9 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4A227582BBB00A91AD9 /* TaskModel.swift */; };
+		D59BA4A527582D6000A91AD9 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4A427582D6000A91AD9 /* ToDoTableViewCell.swift */; };
+		D59BA4A727582D9700A91AD9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4A627582D9700A91AD9 /* Constants.swift */; };
+		D59BA4B3275837B400A91AD9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4B2275837B400A91AD9 /* CustomButton.swift */; };
+		D59BA4B52758402D00A91AD9 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4B42758402D00A91AD9 /* TaskViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D59BA481275813EF00A91AD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D59BA45F275813EE00A91AD9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D59BA466275813EE00A91AD9;
+			remoteInfo = OkToDo;
+		};
+		D59BA48B275813EF00A91AD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D59BA45F275813EE00A91AD9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D59BA466275813EE00A91AD9;
+			remoteInfo = OkToDo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D59BA467275813EE00A91AD9 /* OkToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OkToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D59BA46A275813EE00A91AD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D59BA46C275813EE00A91AD9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D59BA474275813EE00A91AD9 /* OkToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OkToDo.xcdatamodel; sourceTree = "<group>"; };
+		D59BA476275813EF00A91AD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D59BA479275813EF00A91AD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D59BA47B275813EF00A91AD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D59BA480275813EF00A91AD9 /* OkToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OkToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D59BA484275813EF00A91AD9 /* OkToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkToDoTests.swift; sourceTree = "<group>"; };
+		D59BA48A275813EF00A91AD9 /* OkToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OkToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D59BA48E275813EF00A91AD9 /* OkToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkToDoUITests.swift; sourceTree = "<group>"; };
+		D59BA490275813EF00A91AD9 /* OkToDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkToDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D59BA4A027582A1300A91AD9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D59BA4A227582BBB00A91AD9 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		D59BA4A427582D6000A91AD9 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		D59BA4A627582D9700A91AD9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D59BA4B2275837B400A91AD9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D59BA4B42758402D00A91AD9 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D59BA464275813EE00A91AD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D59BA47D275813EF00A91AD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D59BA487275813EF00A91AD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D59BA45E275813EE00A91AD9 = {
+			isa = PBXGroup;
+			children = (
+				D59BA469275813EE00A91AD9 /* OkToDo */,
+				D59BA483275813EF00A91AD9 /* OkToDoTests */,
+				D59BA48D275813EF00A91AD9 /* OkToDoUITests */,
+				D59BA468275813EE00A91AD9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D59BA468275813EE00A91AD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA467275813EE00A91AD9 /* OkToDo.app */,
+				D59BA480275813EF00A91AD9 /* OkToDoTests.xctest */,
+				D59BA48A275813EF00A91AD9 /* OkToDoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D59BA469275813EE00A91AD9 /* OkToDo */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA4AC2758319300A91AD9 /* Extensions */,
+				D59BA4A827582FA300A91AD9 /* Models */,
+				D59BA4A927582FAE00A91AD9 /* Views */,
+				D59BA4AA27582FBC00A91AD9 /* Controllers */,
+				D59BA4AB27582FDE00A91AD9 /* Helpers */,
+				D59BA49D2758146500A91AD9 /* Supporting files */,
+			);
+			path = OkToDo;
+			sourceTree = "<group>";
+		};
+		D59BA483275813EF00A91AD9 /* OkToDoTests */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA484275813EF00A91AD9 /* OkToDoTests.swift */,
+			);
+			path = OkToDoTests;
+			sourceTree = "<group>";
+		};
+		D59BA48D275813EF00A91AD9 /* OkToDoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA48E275813EF00A91AD9 /* OkToDoUITests.swift */,
+				D59BA490275813EF00A91AD9 /* OkToDoUITestsLaunchTests.swift */,
+			);
+			path = OkToDoUITests;
+			sourceTree = "<group>";
+		};
+		D59BA49D2758146500A91AD9 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA473275813EE00A91AD9 /* OkToDo.xcdatamodeld */,
+				D59BA478275813EF00A91AD9 /* LaunchScreen.storyboard */,
+				D59BA46A275813EE00A91AD9 /* AppDelegate.swift */,
+				D59BA46C275813EE00A91AD9 /* SceneDelegate.swift */,
+				D59BA476275813EF00A91AD9 /* Assets.xcassets */,
+				D59BA47B275813EF00A91AD9 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		D59BA4A827582FA300A91AD9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA4A227582BBB00A91AD9 /* TaskModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D59BA4A927582FAE00A91AD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA4A427582D6000A91AD9 /* ToDoTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D59BA4AA27582FBC00A91AD9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA4A027582A1300A91AD9 /* MainViewController.swift */,
+				D59BA4B42758402D00A91AD9 /* TaskViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D59BA4AB27582FDE00A91AD9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA4A627582D9700A91AD9 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D59BA4AC2758319300A91AD9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D59BA4B2275837B400A91AD9 /* CustomButton.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D59BA466275813EE00A91AD9 /* OkToDo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D59BA494275813EF00A91AD9 /* Build configuration list for PBXNativeTarget "OkToDo" */;
+			buildPhases = (
+				D59BA463275813EE00A91AD9 /* Sources */,
+				D59BA464275813EE00A91AD9 /* Frameworks */,
+				D59BA465275813EE00A91AD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OkToDo;
+			productName = OkToDo;
+			productReference = D59BA467275813EE00A91AD9 /* OkToDo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D59BA47F275813EF00A91AD9 /* OkToDoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D59BA497275813EF00A91AD9 /* Build configuration list for PBXNativeTarget "OkToDoTests" */;
+			buildPhases = (
+				D59BA47C275813EF00A91AD9 /* Sources */,
+				D59BA47D275813EF00A91AD9 /* Frameworks */,
+				D59BA47E275813EF00A91AD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D59BA482275813EF00A91AD9 /* PBXTargetDependency */,
+			);
+			name = OkToDoTests;
+			productName = OkToDoTests;
+			productReference = D59BA480275813EF00A91AD9 /* OkToDoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D59BA489275813EF00A91AD9 /* OkToDoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D59BA49A275813EF00A91AD9 /* Build configuration list for PBXNativeTarget "OkToDoUITests" */;
+			buildPhases = (
+				D59BA486275813EF00A91AD9 /* Sources */,
+				D59BA487275813EF00A91AD9 /* Frameworks */,
+				D59BA488275813EF00A91AD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D59BA48C275813EF00A91AD9 /* PBXTargetDependency */,
+			);
+			name = OkToDoUITests;
+			productName = OkToDoUITests;
+			productReference = D59BA48A275813EF00A91AD9 /* OkToDoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D59BA45F275813EE00A91AD9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					D59BA466275813EE00A91AD9 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					D59BA47F275813EF00A91AD9 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = D59BA466275813EE00A91AD9;
+					};
+					D59BA489275813EF00A91AD9 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = D59BA466275813EE00A91AD9;
+					};
+				};
+			};
+			buildConfigurationList = D59BA462275813EE00A91AD9 /* Build configuration list for PBXProject "OkToDo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D59BA45E275813EE00A91AD9;
+			productRefGroup = D59BA468275813EE00A91AD9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D59BA466275813EE00A91AD9 /* OkToDo */,
+				D59BA47F275813EF00A91AD9 /* OkToDoTests */,
+				D59BA489275813EF00A91AD9 /* OkToDoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D59BA465275813EE00A91AD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D59BA47A275813EF00A91AD9 /* LaunchScreen.storyboard in Resources */,
+				D59BA477275813EF00A91AD9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D59BA47E275813EF00A91AD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D59BA488275813EF00A91AD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D59BA463275813EE00A91AD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D59BA46B275813EE00A91AD9 /* AppDelegate.swift in Sources */,
+				D59BA46D275813EE00A91AD9 /* SceneDelegate.swift in Sources */,
+				D59BA4B3275837B400A91AD9 /* CustomButton.swift in Sources */,
+				D59BA4A327582BBB00A91AD9 /* TaskModel.swift in Sources */,
+				D59BA4A527582D6000A91AD9 /* ToDoTableViewCell.swift in Sources */,
+				D59BA4A727582D9700A91AD9 /* Constants.swift in Sources */,
+				D59BA475275813EE00A91AD9 /* OkToDo.xcdatamodeld in Sources */,
+				D59BA4A127582A1300A91AD9 /* MainViewController.swift in Sources */,
+				D59BA4B52758402D00A91AD9 /* TaskViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D59BA47C275813EF00A91AD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D59BA485275813EF00A91AD9 /* OkToDoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D59BA486275813EF00A91AD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D59BA491275813EF00A91AD9 /* OkToDoUITestsLaunchTests.swift in Sources */,
+				D59BA48F275813EF00A91AD9 /* OkToDoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D59BA482275813EF00A91AD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D59BA466275813EE00A91AD9 /* OkToDo */;
+			targetProxy = D59BA481275813EF00A91AD9 /* PBXContainerItemProxy */;
+		};
+		D59BA48C275813EF00A91AD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D59BA466275813EE00A91AD9 /* OkToDo */;
+			targetProxy = D59BA48B275813EF00A91AD9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D59BA478275813EF00A91AD9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D59BA479275813EF00A91AD9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D59BA492275813EF00A91AD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D59BA493275813EF00A91AD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D59BA495275813EF00A91AD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F93QJDSLD3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "OkToDo/Supporting files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrkurtsev.OkToDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D59BA496275813EF00A91AD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F93QJDSLD3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "OkToDo/Supporting files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrkurtsev.OkToDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D59BA498275813EF00A91AD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F93QJDSLD3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrkurtsev.OkToDoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OkToDo.app/OkToDo";
+			};
+			name = Debug;
+		};
+		D59BA499275813EF00A91AD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F93QJDSLD3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrkurtsev.OkToDoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OkToDo.app/OkToDo";
+			};
+			name = Release;
+		};
+		D59BA49B275813EF00A91AD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F93QJDSLD3;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrkurtsev.OkToDoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OkToDo;
+			};
+			name = Debug;
+		};
+		D59BA49C275813EF00A91AD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F93QJDSLD3;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oleksandrkurtsev.OkToDoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OkToDo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D59BA462275813EE00A91AD9 /* Build configuration list for PBXProject "OkToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D59BA492275813EF00A91AD9 /* Debug */,
+				D59BA493275813EF00A91AD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D59BA494275813EF00A91AD9 /* Build configuration list for PBXNativeTarget "OkToDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D59BA495275813EF00A91AD9 /* Debug */,
+				D59BA496275813EF00A91AD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D59BA497275813EF00A91AD9 /* Build configuration list for PBXNativeTarget "OkToDoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D59BA498275813EF00A91AD9 /* Debug */,
+				D59BA499275813EF00A91AD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D59BA49A275813EF00A91AD9 /* Build configuration list for PBXNativeTarget "OkToDoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D59BA49B275813EF00A91AD9 /* Debug */,
+				D59BA49C275813EF00A91AD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D59BA473275813EE00A91AD9 /* OkToDo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D59BA474275813EE00A91AD9 /* OkToDo.xcdatamodel */,
+			);
+			currentVersion = D59BA474275813EE00A91AD9 /* OkToDo.xcdatamodel */;
+			path = OkToDo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D59BA45F275813EE00A91AD9 /* Project object */;
+}

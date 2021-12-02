@@ -1,0 +1,32 @@
+### CocoaPods ###
+Pods/
+
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Objective-C / Swift ###
+
+## User settings
+xcuserdata/
+
+## Specific
+*.hmap
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+### Xcode ###
+
+## Gcc Patch
+/*.gcno
+
+## Xcode Patch
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
