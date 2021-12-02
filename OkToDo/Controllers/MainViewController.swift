@@ -23,6 +23,12 @@ class MainViewController: UIViewController {
         setupConstraints()
         setupTableView()
         setupAddButton()
+        
+        for _ in 0..<20 {
+            var task = TaskModel()
+            task.name = "Test task"
+            tasks.append(task)
+        }
     }
     
     private func setupTableView() {
@@ -59,7 +65,8 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)/* as! ToDoTableViewCell*/
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ToDoTableViewCell
+        cell.configure(task: tasks[indexPath.row])
         return cell
     }
 }
@@ -92,7 +99,6 @@ extension MainViewController {
             addButton.heightAnchor.constraint(equalToConstant: 50),
             addButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -20),
             addButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: bottomOffset),
-            
         ])
     }
 }

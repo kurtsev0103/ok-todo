@@ -19,5 +19,9 @@ class ToDoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configure(task: TaskModel) {
+        textLabel?.text = task.name
+    }
 
 }

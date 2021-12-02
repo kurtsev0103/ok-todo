@@ -8,5 +8,5 @@
 import Foundation
 
 struct TaskModel {
-    let name = "task"
+    var name = "task"
 }
