@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D510A90A275940E700829C0B /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510A909275940E700829C0B /* UIStackView + Extension.swift */; };
+		D510A90E275985B200829C0B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510A90D275985B200829C0B /* CustomTextField.swift */; };
 		D59BA46B275813EE00A91AD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA46A275813EE00A91AD9 /* AppDelegate.swift */; };
 		D59BA46D275813EE00A91AD9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA46C275813EE00A91AD9 /* SceneDelegate.swift */; };
 		D59BA475275813EE00A91AD9 /* OkToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D59BA473275813EE00A91AD9 /* OkToDo.xcdatamodeld */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D510A909275940E700829C0B /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
+		D510A90D275985B200829C0B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D59BA467275813EE00A91AD9 /* OkToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OkToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59BA46A275813EE00A91AD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D59BA46C275813EE00A91AD9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				D59BA4B2275837B400A91AD9 /* CustomButton.swift */,
+				D510A90D275985B200829C0B /* CustomTextField.swift */,
+				D510A909275940E700829C0B /* UIStackView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,8 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D59BA46B275813EE00A91AD9 /* AppDelegate.swift in Sources */,
+				D510A90E275985B200829C0B /* CustomTextField.swift in Sources */,
 				D59BA46D275813EE00A91AD9 /* SceneDelegate.swift in Sources */,
 				D59BA4B3275837B400A91AD9 /* CustomButton.swift in Sources */,
+				D510A90A275940E700829C0B /* UIStackView + Extension.swift in Sources */,
 				D59BA4A327582BBB00A91AD9 /* TaskModel.swift in Sources */,
 				D59BA4A527582D6000A91AD9 /* ToDoTableViewCell.swift in Sources */,
 				D59BA4A727582D9700A91AD9 /* Constants.swift in Sources */,
