@@ -9,12 +9,14 @@ import UIKit
 
 enum CustomButtonType {
     case addButton
+    case saveButton
+    case cancelButton
 }
 
 class CustomButton: UIButton {
     
     private var buttonColor: UIColor!
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -28,7 +30,14 @@ class CustomButton: UIButton {
         
         switch type {
         case .addButton:
-            setupAsAddButton()
+            setTitle("+", for: .normal)
+            setupAsRoundButton()
+        case .saveButton:
+            setTitle(kSaveString, for: .normal)
+            setupAsNormalButton()
+        case .cancelButton:
+            setTitle(kCancelString, for: .normal)
+            setupAsNormalButton()
         }
     }
     
@@ -41,18 +50,32 @@ class CustomButton: UIButton {
 
 extension CustomButton {
     
-    private func setupAsAddButton() {
+    private func setupAsRoundButton() {
         self.buttonColor = Colors.niceBlue
-        setTitle("+", for: .normal)
         setTitleColor(buttonColor, for: .normal)
         setTitleColor(.black, for: .highlighted)
-
+        
         titleLabel?.font = Fonts.avenir50
         titleLabel?.shadowColor = Colors.niceDark
         titleLabel?.shadowOffset = CGSize(width: 4, height: 4)
         
         layer.cornerRadius = 25
         layer.borderWidth = 3
+        layer.borderColor = buttonColor.cgColor
+        clipsToBounds = true
+    }
+    
+    private func setupAsNormalButton() {
+        self.buttonColor = Colors.niceBlue
+        setTitleColor(buttonColor, for: .normal)
+        setTitleColor(.white, for: .highlighted)
+        
+        titleLabel?.font = Fonts.avenir20
+        titleLabel?.shadowColor = Colors.niceDark
+        titleLabel?.shadowOffset = CGSize(width: 4, height: 4)
+        
+        layer.borderWidth = 3
+        layer.cornerRadius = 20
         layer.borderColor = buttonColor.cgColor
         clipsToBounds = true
     }

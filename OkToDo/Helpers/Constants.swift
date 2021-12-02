@@ -14,7 +14,14 @@ struct Colors {
 }
 
 struct Fonts {
+    static let avenir16 = UIFont(name: "AvenirNextCondensed-DemiBold", size: 16)
+    static let avenir20 = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
     static let avenir50 = UIFont(name: "AvenirNextCondensed-DemiBold", size: 50)
 }
 
-let kPlusImage = "Plus"
+let kSaveString = "Save"
+let kCancelString = "Cancel"
+
+let kPlaceholderDate = "Select a date"
+let kPlaceholderName = "Write the name of the task"
+let kPlaceholderCategory = "Select a task category"
