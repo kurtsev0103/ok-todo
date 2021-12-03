@@ -18,11 +18,11 @@
 		D59BA48F275813EF00A91AD9 /* OkToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA48E275813EF00A91AD9 /* OkToDoUITests.swift */; };
 		D59BA491275813EF00A91AD9 /* OkToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA490275813EF00A91AD9 /* OkToDoUITestsLaunchTests.swift */; };
 		D59BA4A127582A1300A91AD9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4A027582A1300A91AD9 /* MainViewController.swift */; };
-		D59BA4A327582BBB00A91AD9 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4A227582BBB00A91AD9 /* TaskModel.swift */; };
 		D59BA4A527582D6000A91AD9 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4A427582D6000A91AD9 /* ToDoTableViewCell.swift */; };
 		D59BA4A727582D9700A91AD9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4A627582D9700A91AD9 /* Constants.swift */; };
 		D59BA4B3275837B400A91AD9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4B2275837B400A91AD9 /* CustomButton.swift */; };
 		D59BA4B52758402D00A91AD9 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4B42758402D00A91AD9 /* TaskViewController.swift */; };
+		D5D28DBE275AD057001A40D3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D28DBD275AD057001A40D3 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,11 +58,11 @@
 		D59BA48E275813EF00A91AD9 /* OkToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkToDoUITests.swift; sourceTree = "<group>"; };
 		D59BA490275813EF00A91AD9 /* OkToDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkToDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D59BA4A027582A1300A91AD9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		D59BA4A227582BBB00A91AD9 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		D59BA4A427582D6000A91AD9 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		D59BA4A627582D9700A91AD9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D59BA4B2275837B400A91AD9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D59BA4B42758402D00A91AD9 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		D5D28DBD275AD057001A40D3 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				D59BA4AC2758319300A91AD9 /* Extensions */,
-				D59BA4A827582FA300A91AD9 /* Models */,
 				D59BA4A927582FAE00A91AD9 /* Views */,
 				D59BA4AA27582FBC00A91AD9 /* Controllers */,
 				D59BA4AB27582FDE00A91AD9 /* Helpers */,
@@ -153,14 +152,6 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		D59BA4A827582FA300A91AD9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				D59BA4A227582BBB00A91AD9 /* TaskModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		D59BA4A927582FAE00A91AD9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				D59BA4A627582D9700A91AD9 /* Constants.swift */,
+				D5D28DBD275AD057001A40D3 /* Utils.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -189,9 +181,9 @@
 		D59BA4AC2758319300A91AD9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D59BA4B2275837B400A91AD9 /* CustomButton.swift */,
-				D510A90D275985B200829C0B /* CustomTextField.swift */,
 				D510A909275940E700829C0B /* UIStackView + Extension.swift */,
+				D510A90D275985B200829C0B /* CustomTextField.swift */,
+				D59BA4B2275837B400A91AD9 /* CustomButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,9 +323,9 @@
 				D59BA46D275813EE00A91AD9 /* SceneDelegate.swift in Sources */,
 				D59BA4B3275837B400A91AD9 /* CustomButton.swift in Sources */,
 				D510A90A275940E700829C0B /* UIStackView + Extension.swift in Sources */,
-				D59BA4A327582BBB00A91AD9 /* TaskModel.swift in Sources */,
 				D59BA4A527582D6000A91AD9 /* ToDoTableViewCell.swift in Sources */,
 				D59BA4A727582D9700A91AD9 /* Constants.swift in Sources */,
+				D5D28DBE275AD057001A40D3 /* Utils.swift in Sources */,
 				D59BA475275813EE00A91AD9 /* OkToDo.xcdatamodeld in Sources */,
 				D59BA4A127582A1300A91AD9 /* MainViewController.swift in Sources */,
 				D59BA4B52758402D00A91AD9 /* TaskViewController.swift in Sources */,

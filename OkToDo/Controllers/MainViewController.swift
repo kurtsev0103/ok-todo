@@ -10,31 +10,42 @@ import CoreData
 
 class MainViewController: UIViewController {
     
-    var context: NSManagedObjectContext!
+    private let context: NSManagedObjectContext
     
     private let tableView = UITableView()
     private let addButton = CustomButton(type: .addButton)
     private let identifier = String(describing: ToDoTableViewCell.self)
     
-    private var tasks = [TaskModel]()
+    private var tasks = [Task]()
+    
+    init(context: NSManagedObjectContext) {
+        self.context = context
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadingTasksFromCoreData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupMainParams()
         setupConstraints()
         setupTableView()
         setupAddButton()
-        
-        for _ in 0..<20 {
-            var task = TaskModel()
-            task.name = "Test task"
-            tasks.append(task)
-        }
+    }
+    
+    private func setupMainParams() {
+        navigationItem.title = kMyTasksString
     }
     
     private func setupTableView() {
         tableView.register(ToDoTableViewCell.self, forCellReuseIdentifier: identifier)
-        tableView.backgroundColor = Colors.mainWhite
-        tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -43,8 +54,24 @@ class MainViewController: UIViewController {
         addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
     }
     
+    private func loadingTasksFromCoreData() {
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let dateSort = NSSortDescriptor(key: "date", ascending: true)
+        fetchRequest.sortDescriptors = [dateSort]
+        
+        do {
+            tasks = try context.fetch(fetchRequest)
+            tableView.reloadData()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    // MARK: - Actions
+    
     @objc private func addButtonAction() {
-        navigationController?.pushViewController(TaskViewController(), animated: true)
+        let vc = TaskViewController(context: context)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -54,6 +81,15 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            context.delete(tasks[indexPath.row])
+            tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .top)
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        }
     }
 }
 

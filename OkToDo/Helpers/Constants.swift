@@ -21,7 +21,9 @@ struct Fonts {
 
 let kSaveString = "Save"
 let kCancelString = "Cancel"
+let kMyTasksString = "My tasks:"
+let kNewTaskString = "Create a new task"
+let kEmptyTasksString = "You don't have any tasks yet"
 
-let kPlaceholderDate = "Select a date"
 let kPlaceholderName = "Write the name of the task"
 let kPlaceholderCategory = "Select a task category"

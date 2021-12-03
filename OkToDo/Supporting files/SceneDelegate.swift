@@ -13,15 +13,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else { return }
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: UIScreen.main.bounds)
         
-        let mainVC = MainViewController()
+        let context = appDelegate.persistentContainer.viewContext
+        let mainVC = MainViewController(context: context)
         let navigationVC = UINavigationController(rootViewController: mainVC)
         
-        mainVC.context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-        
+        window = UIWindow(frame: UIScreen.main.bounds)
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        
         window?.windowScene = windowScene
         window?.rootViewController = navigationVC
         window?.makeKeyAndVisible()
