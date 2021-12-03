@@ -7,12 +7,6 @@
 
 import UIKit
 
-enum TextFieldType {
-    case name
-    case date
-    case category
-}
-
 class CustomTextField: UITextField {
     
     required init?(coder: NSCoder) {
@@ -22,25 +16,12 @@ class CustomTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupTextField()
-    }
-    
-    convenience init(type: TextFieldType) {
-        self.init()
-        
-        leftViewMode = .always
-        rightViewMode = .always
         
         leftView = UIView()
-        rightView = UIView()
+        leftViewMode = .always
         
-        switch type {
-        case .name:
-            placeholder = kPlaceholderName
-        case .date:
-            placeholder = kPlaceholderDate
-        case .category:
-            placeholder = kPlaceholderCategory
-        }
+        rightView = UIView()
+        rightViewMode = .always
     }
     
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
@@ -48,9 +29,11 @@ class CustomTextField: UITextField {
     }
     
     override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
-        return CGRect(x: frame.width - 20, y: frame.height - 20, width: 20, height: 20)
+        return CGRect(x: frame.width - 20, y: 0, width: 20, height: 20)
     }
-    
+}
+
+extension CustomTextField {
     private func setupTextField() {
         backgroundColor = UIColor(white: 1.0, alpha: 0.5)
         textColor = Colors.niceDark

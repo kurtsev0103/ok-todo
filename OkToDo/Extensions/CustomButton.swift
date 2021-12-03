@@ -28,16 +28,29 @@ class CustomButton: UIButton {
     convenience init(type: CustomButtonType) {
         self.init(type: .system)
         
+        self.buttonColor = Colors.niceBlue
+        setTitleColor(buttonColor, for: .normal)
+        setTitleColor(.white, for: .highlighted)
+        
+        titleLabel?.shadowColor = Colors.niceDark
+        titleLabel?.shadowOffset = CGSize(width: 4, height: 4)
+        layer.borderColor = buttonColor.cgColor
+        layer.borderWidth = 3
+        clipsToBounds = true
+        
         switch type {
         case .addButton:
             setTitle("+", for: .normal)
-            setupAsRoundButton()
+            titleLabel?.font = Fonts.avenir50
+            layer.cornerRadius = 25
         case .saveButton:
             setTitle(kSaveString, for: .normal)
-            setupAsNormalButton()
+            titleLabel?.font = Fonts.avenir20
+            layer.cornerRadius = 20
         case .cancelButton:
             setTitle(kCancelString, for: .normal)
-            setupAsNormalButton()
+            titleLabel?.font = Fonts.avenir20
+            layer.cornerRadius = 20
         }
     }
     
@@ -45,38 +58,5 @@ class CustomButton: UIButton {
         didSet {
             backgroundColor = isHighlighted ? buttonColor : .clear
         }
-    }
-}
-
-extension CustomButton {
-    
-    private func setupAsRoundButton() {
-        self.buttonColor = Colors.niceBlue
-        setTitleColor(buttonColor, for: .normal)
-        setTitleColor(.black, for: .highlighted)
-        
-        titleLabel?.font = Fonts.avenir50
-        titleLabel?.shadowColor = Colors.niceDark
-        titleLabel?.shadowOffset = CGSize(width: 4, height: 4)
-        
-        layer.cornerRadius = 25
-        layer.borderWidth = 3
-        layer.borderColor = buttonColor.cgColor
-        clipsToBounds = true
-    }
-    
-    private func setupAsNormalButton() {
-        self.buttonColor = Colors.niceBlue
-        setTitleColor(buttonColor, for: .normal)
-        setTitleColor(.white, for: .highlighted)
-        
-        titleLabel?.font = Fonts.avenir20
-        titleLabel?.shadowColor = Colors.niceDark
-        titleLabel?.shadowOffset = CGSize(width: 4, height: 4)
-        
-        layer.borderWidth = 3
-        layer.cornerRadius = 20
-        layer.borderColor = buttonColor.cgColor
-        clipsToBounds = true
     }
 }
