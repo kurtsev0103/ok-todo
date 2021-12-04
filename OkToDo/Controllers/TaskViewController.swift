@@ -73,6 +73,7 @@ class TaskViewController: UIViewController {
     @objc private func saveAction() {
         let task = Task(context: context)
         task.name = nameTextField.text
+        task.date = datePicker.date
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         cancelAction()
     }
