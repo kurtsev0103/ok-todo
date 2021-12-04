@@ -85,10 +85,14 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            context.delete(tasks[indexPath.row])
-            tasks.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .top)
-            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            
+            showAlert(title: nil, message: kConfirmDeleteMessage) { [weak self] in
+                guard let self = self else { return }
+                self.context.delete(self.tasks[indexPath.row])
+                self.tasks.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            }
         }
     }
 }
