@@ -101,6 +101,12 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tasks.isEmpty {
+            tableView.showEmptyMessage(kEmptyTasksString)
+        } else {
+            tableView.restore()
+        }
+        
         return tasks.count
     }
     
