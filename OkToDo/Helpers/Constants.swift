@@ -25,5 +25,9 @@ let kMyTasksString = "My tasks:"
 let kNewTaskString = "Create a new task"
 let kEmptyTasksString = "You don't have any tasks yet"
 
+let kAlertTitleConfirm = "Confirm"
+let kAlertTitleCancel = "Cancel"
+let kConfirmDeleteMessage = "Are you sure you want to delete the task? This action is irrevocable."
+
 let kPlaceholderName = "Write the name of the task"
 let kPlaceholderCategory = "Select a task category"
