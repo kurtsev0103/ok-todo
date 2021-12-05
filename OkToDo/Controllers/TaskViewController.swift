@@ -145,38 +145,16 @@ extension TaskViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - Setup Constraints
+// MARK: - CategoryViewControllerDelegate
 
-extension TaskViewController {
-    private func setupConstraints() {
-        let array = [nameTextField, categoryTextField, datePicker, cancelButton, saveButton]
-        let stackView = UIStackView(subviews: array, axis: .vertical, spacing: 10)
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stackView)
-        
-        NSLayoutConstraint.activate([
-            datePicker.heightAnchor.constraint(equalToConstant: 40),
-            
-            saveButton.heightAnchor.constraint(equalToConstant: 40),
-            saveButton.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 0),
-            saveButton.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: 0),
-            
-            cancelButton.heightAnchor.constraint(equalToConstant: 40),
-            cancelButton.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 0),
-            cancelButton.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: 0),
-            
-            nameTextField.heightAnchor.constraint(equalToConstant: 40),
-            nameTextField.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 0),
-            nameTextField.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: 0),
-            
-            categoryTextField.heightAnchor.constraint(equalToConstant: 40),
-            categoryTextField.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 0),
-            categoryTextField.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: 0),
-            
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-            stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-        ])
+extension TaskViewController: CategoryViewControllerDelegate {
+    func getCategory(_ category: Category?) {
+        guard let category = category, let name = category.name else {
+            categoryLabel.text = kCategoryEmptyString
+            categoryLabel.textColor = Colors.placeholder
+            return
+        }
+        categoryLabel.textColor = Colors.niceDark
+        categoryLabel.text = name
     }
 }
