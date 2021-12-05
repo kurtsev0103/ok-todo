@@ -5,16 +5,27 @@
 //  Created by Oleksandr Kurtsev on 03/12/2021.
 //
 
-import Foundation
+import UIKit
 
 struct Utils {
     
-    private static let formatter = DateFormatter()
-    
-    static func dateToString(date: Date) -> String {
+    static func dateToString(date: Date, _ format: String = "dd.MM.yyyy") -> String {
+        let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .none
-        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.dateFormat = format
         return formatter.string(from: date)
+    }
+    
+    static func validateStringLength(_ string: String?) -> (Bool, String?) {
+        guard let string = string else { return (false, nil) }
+        let validateString = string.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard validateString.count >= 3 else { return (false, nil) }
+        return (true, validateString)
+    }
+    
+    static func colorFromDict(_ dict: [String: Float]) -> UIColor {
+        guard let red = dict["red"], let green = dict["green"], let blue = dict["blue"] else { return UIColor() }
+        return UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: 1.0)
     }
 }
