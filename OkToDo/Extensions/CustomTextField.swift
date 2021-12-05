@@ -35,7 +35,7 @@ class CustomTextField: UITextField {
 
 extension CustomTextField {
     private func setupTextField() {
-        backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+        backgroundColor = .white
         textColor = Colors.niceDark
         tintColor = Colors.niceDark
         font = Fonts.avenir16
@@ -43,7 +43,7 @@ extension CustomTextField {
         autocapitalizationType = .none
         autocorrectionType = .no
         layer.cornerRadius = 20
-        returnKeyType = .next
+        returnKeyType = .done
         clipsToBounds = true
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
-
+    
     func configure(task: Task) {
         textLabel?.text = task.name
     }

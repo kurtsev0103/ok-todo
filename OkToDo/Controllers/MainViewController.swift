@@ -10,13 +10,23 @@ import CoreData
 
 class MainViewController: UIViewController {
     
+    private var tasks = [Task]()
     private let context: NSManagedObjectContext
-    
-    private let tableView = UITableView()
-    private let addButton = CustomButton(type: .addButton)
     private let identifier = String(describing: ToDoTableViewCell.self)
     
-    private var tasks = [Task]()
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(ToDoTableViewCell.self, forCellReuseIdentifier: identifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
+    }()
+    
+    private lazy var addButton: CustomButton = {
+        let addButton = CustomButton(type: .addButton)
+        addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
+        return addButton
+    }()
     
     init(context: NSManagedObjectContext) {
         self.context = context
@@ -34,25 +44,19 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMainParams()
         setupConstraints()
-        setupTableView()
-        setupAddButton()
-    }
-    
-    private func setupMainParams() {
+        
         navigationItem.title = kMyTasksString
     }
     
-    private func setupTableView() {
-        tableView.register(ToDoTableViewCell.self, forCellReuseIdentifier: identifier)
-        tableView.dataSource = self
-        tableView.delegate = self
+    // MARK: - Actions
+    
+    @objc private func addButtonAction() {
+        let vc = TaskViewController(context: context)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func setupAddButton() {
-        addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
-    }
+    // MARK: - Fetch Request
     
     private func loadingTasksFromCoreData() {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
@@ -66,13 +70,6 @@ class MainViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-    
-    // MARK: - Actions
-    
-    @objc private func addButtonAction() {
-        let vc = TaskViewController(context: context)
-        navigationController?.pushViewController(vc, animated: true)
-    }
 }
 
 // MARK: - UITableViewDelegate
@@ -81,15 +78,14 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        // TODO: Show task in DetailViewController
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
-            showAlert(title: nil, message: kConfirmDeleteMessage) { [weak self] in
-                guard let self = self else { return }
-                self.context.delete(self.tasks[indexPath.row])
-                self.tasks.remove(at: indexPath.row)
+            showAlert(title: nil, message: kConfirmDeleteMessage) { [unowned self] in
+                context.delete(tasks[indexPath.row])
+                tasks.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             }
@@ -111,7 +107,9 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ToDoTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? ToDoTableViewCell else {
+            return UITableViewCell()
+        }
         cell.configure(task: tasks[indexPath.row])
         return cell
     }

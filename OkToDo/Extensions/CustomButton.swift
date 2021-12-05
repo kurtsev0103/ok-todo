@@ -35,6 +35,7 @@ class CustomButton: UIButton {
         titleLabel?.shadowColor = Colors.niceDark
         titleLabel?.shadowOffset = CGSize(width: 4, height: 4)
         layer.borderColor = buttonColor.cgColor
+        layer.cornerRadius = 25
         layer.borderWidth = 3
         clipsToBounds = true
         
@@ -42,15 +43,12 @@ class CustomButton: UIButton {
         case .addButton:
             setTitle("+", for: .normal)
             titleLabel?.font = Fonts.avenir50
-            layer.cornerRadius = 25
         case .saveButton:
             setTitle(kSaveString, for: .normal)
             titleLabel?.font = Fonts.avenir20
-            layer.cornerRadius = 20
         case .cancelButton:
             setTitle(kCancelString, for: .normal)
             titleLabel?.font = Fonts.avenir20
-            layer.cornerRadius = 20
         }
     }
     
