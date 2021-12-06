@@ -79,7 +79,10 @@ class CategoryViewController: UITableViewController {
         if indexPath.row == 0 {
             cell.textLabel?.text = kAddNewCategoryString
         } else {
-            cell.textLabel?.text = categories[indexPath.row - 1].name
+            let category = categories[indexPath.row - 1]
+            cell.textLabel?.text = category.name
+            cell.textLabel?.textColor = UIColor(hex: category.textColor)
+            cell.backgroundColor = UIColor(hex: category.backColor)
         }
         
         return cell

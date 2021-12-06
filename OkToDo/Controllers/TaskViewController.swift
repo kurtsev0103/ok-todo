@@ -10,6 +10,7 @@ import CoreData
 
 class TaskViewController: UITableViewController {
     
+    private var category: Category?
     private let context: NSManagedObjectContext
     private let identifier = String(describing: TaskTableViewCell.self)
     
@@ -75,6 +76,7 @@ class TaskViewController: UITableViewController {
         
         let task = Task(context: context)
         task.name = nameString
+        task.category = category
         task.date = datePickerView.date
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         
@@ -148,12 +150,16 @@ extension TaskViewController: UITextFieldDelegate {
 // MARK: - CategoryViewControllerDelegate
 
 extension TaskViewController: CategoryViewControllerDelegate {
+    
     func getCategory(_ category: Category?) {
+        self.category = category
+        
         guard let category = category, let name = category.name else {
             categoryLabel.text = kCategoryEmptyString
             categoryLabel.textColor = Colors.placeholder
             return
         }
+        
         categoryLabel.textColor = Colors.niceDark
         categoryLabel.text = name
     }
