@@ -38,7 +38,7 @@ let kAlertTitleCongr        = "Congratulations"
 let kAlertNewTaskMessage    = "You added a new task"
 let kConfirmCancelMessage   = "The created task will be deleted. Do you really want to continue?"
 let kConfirmDeleteMessage   = "Are you sure you want to delete the task? This action is irrevocable."
-let kAlertStringLengthError = "The task name cannot contain an empty string or be less than 3 characters long. Please correct it and try again."
+let kAlertStringLengthError = "Task name cannot be less than 3 characters long. Please correct it and try again."
 
 let kPlaceholderName        = "Write the name of the task"
 let kPlaceholderCategory    = "Select a task category"

@@ -9,7 +9,7 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
     
-    let containerView = UIView()
+    private let containerView = UIView()
     
     func configure(view: UIView) {
         containerView.backgroundColor = Colors.mainWhite
