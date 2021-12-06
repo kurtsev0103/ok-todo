@@ -99,14 +99,16 @@ extension AppDelegate {
             category.name = categoryDict["name"] as? String
             
             if let colorDict = categoryDict["textColor"] as? [String : Float] {
-                category.textColor = Utils.colorFromDict(colorDict)
+                let color = Utils.colorFromDict(colorDict)
+                category.textColor = color.toHexString()
             }
             
             if let colorDict = categoryDict["backColor"] as? [String : Float] {
-                category.backColor = Utils.colorFromDict(colorDict)
+                let color = Utils.colorFromDict(colorDict)
+                category.backColor = color.toHexString()
             }
             
-            if let iconName = categoryDict["iconName"] as? String {
+            if let iconName = categoryDict["iconName"] as? String, !iconName.isEmpty {
                 if let icon = UIImage(named: iconName) {
                     category.icon = icon.pngData()
                 }
