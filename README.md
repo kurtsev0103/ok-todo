@@ -30,6 +30,7 @@
  - Początkowe "kategorie" odpowiadają paragrafowi ```#11``` Wszystkie kolory są przestrzegane zgodnie z warunkami.
  - Wszystkie kategorie są przechowywane w CoreData. Można je odpowiednio usuwać i dodawać nowe.
  - Zarówno w kategoriach standardowych jak i nowych można wybrać dowolny kolor tekstu oraz kolor tła.
+ - Zadania, które zostały już utworzone, można edytować, klikając na nie na liście wszystkich zadań.
  - Pole wyboru "data" podczas tworzenia zadania wygląda tak samo zarówno w systemie iOS 13.0, jak i iOS >= 13.4. 
     > W iOS < 13.4 DatePicker pojawia się w miejscu klawiatury, a w iOS >= 13.4 w nowym stylu popover.
 
