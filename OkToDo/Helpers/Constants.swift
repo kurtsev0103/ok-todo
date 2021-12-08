@@ -22,9 +22,14 @@ struct Fonts {
 }
 
 let kSaveString             = "Save"
+let kEditString             = "Edit"
+let kDeleteString           = "Delete"
 let kCancelString           = "Cancel"
 let kMyTasksString          = "My tasks:"
 let kCategoriesString       = "Categories"
+let kTextColorString        = "Text Color"
+let kBackColorString        = "Back Color"
+let kCategoryPlaceholder    = "Enter a category name"
 let kNewTaskString          = "Create a new task"
 let kAddNewCategoryString   = "Add a new category"
 let kCategoryEmptyString    = "Category not selected"
@@ -37,8 +42,11 @@ let kAlertTitleCancel       = "Cancel"
 let kAlertTitleCongr        = "Congratulations"
 let kAlertNewTaskMessage    = "You added a new task"
 let kConfirmCancelMessage   = "The created task will be deleted. Do you really want to continue?"
-let kConfirmDeleteMessage   = "Are you sure you want to delete the task? This action is irrevocable."
-let kAlertStringLengthError = "Task name cannot be less than 3 characters long. Please correct it and try again."
+let kConfirmDeleteTask      = "Are you sure you want to delete the task? This action is irrevocable."
+let kConfirmDeleteCategory  = "Are you sure you want to delete a category? All your tasks with this category will become category-free."
+
+let kTaskLengthError        = "Task name cannot be less than 3 characters long. Please correct it and try again."
+let kCategoryLengthError    = "Category name cannot be less than 3 characters long. Please correct it and try again."
 
 let kPlaceholderName        = "Write the name of the task"
 let kPlaceholderCategory    = "Select a task category"

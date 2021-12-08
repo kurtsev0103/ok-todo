@@ -83,7 +83,7 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            showAlert(title: nil, message: kConfirmDeleteMessage) { [unowned self] in
+            showAlert(title: nil, message: kConfirmDeleteTask) { [unowned self] in
                 context.delete(tasks[indexPath.row])
                 tasks.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)

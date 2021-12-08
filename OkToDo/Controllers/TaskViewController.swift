@@ -70,7 +70,7 @@ class TaskViewController: UITableViewController {
         let (isVerified, nameString) = Utils.validateStringLength(nameTextField.text)
         
         guard isVerified else {
-            showAlert(title: kAlertError, message: kAlertStringLengthError)
+            showAlert(title: kAlertError, message: kTaskLengthError)
             return
         }
         
