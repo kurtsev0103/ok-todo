@@ -39,4 +39,28 @@ extension UIColor {
         let rgb: Int = (Int)(r * 255)<<16 | (Int)(g * 255)<<8 | (Int)(b * 255)<<0
         return String(format:"#%06x", rgb)
     }
+    
+    var redComponent: Float {
+        var red: CGFloat = 0.0
+        getRed(&red, green: nil, blue: nil, alpha: nil)
+        return Float(red)
+    }
+    
+    var greenComponent: Float {
+        var green: CGFloat = 0.0
+        getRed(nil, green: &green, blue: nil, alpha: nil)
+        return Float(green)
+    }
+    
+    var blueComponent: Float {
+        var blue: CGFloat = 0.0
+        getRed(nil, green: nil, blue: &blue, alpha: nil)
+        return Float(blue)
+    }
+    
+    var alphaComponent: Float {
+        var alpha: CGFloat = 0.0
+        getRed(nil, green: nil, blue: nil, alpha: &alpha)
+        return Float(alpha)
+    }
 }
