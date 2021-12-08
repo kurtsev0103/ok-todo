@@ -25,11 +25,13 @@ class ToDoTableViewCell: UITableViewCell {
             imageView?.image = nil
             backgroundColor = .white
             textLabel?.textColor = .black
+            detailTextLabel?.textColor = .black
             return
         }
         
         backgroundColor = UIColor(hex: category.backColor)
         textLabel?.textColor = UIColor(hex: category.textColor)
+        detailTextLabel?.textColor = textLabel?.textColor
                 
         guard let iconData = category.icon else {
             imageView?.image = nil
