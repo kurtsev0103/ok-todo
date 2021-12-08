@@ -10,6 +10,7 @@ import CoreData
 
 class TaskViewController: UITableViewController {
     
+    private var task: Task?
     private var category: Category?
     private let context: NSManagedObjectContext
     private let identifier = String(describing: TaskTableViewCell.self)
@@ -44,8 +45,9 @@ class TaskViewController: UITableViewController {
         return cancelButton
     }()
     
-    init(context: NSManagedObjectContext) {
+    init(context: NSManagedObjectContext, task: Task? = nil) {
         self.context = context
+        self.task = task
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -62,6 +64,15 @@ class TaskViewController: UITableViewController {
         navigationItem.hidesBackButton = true
         navigationItem.title = kNewTaskString
         view.backgroundColor = Colors.mainWhite
+        
+        category = task?.category
+        nameTextField.text = task?.name
+        datePickerView.date = task?.date ?? Date()
+        
+        if let category = category {
+            categoryLabel.text = category.name
+            categoryLabel.textColor = Colors.niceDark
+        }
     }
     
     // MARK: - Actions
@@ -74,15 +85,20 @@ class TaskViewController: UITableViewController {
             return
         }
         
-        let task = Task(context: context)
-        task.name = nameString
-        task.category = category
-        task.date = datePickerView.date
+        let isNewTask = (task == nil)
+        
+        if task == nil {
+            task = Task(context: context)
+        }
+        
+        task?.name = nameString
+        task?.category = category
+        task?.date = datePickerView.date
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         
         guard let navigationController = navigationController else { return }
         navigationController.popViewControllerWithCompletion {
-            navigationController.showAlert(kAlertTitleCongr, kAlertNewTaskMessage)
+            navigationController.showAlert(kAlertTitleCongr, isNewTask ? kAlertNewTaskMessage : kTaskChangedMessage)
         }
     }
     
