@@ -14,6 +14,7 @@
 		D506722A275C0EBA005BA547 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5067229275C0EBA005BA547 /* DatePickerView.swift */; };
 		D510A90A275940E700829C0B /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510A909275940E700829C0B /* UIStackView + Extension.swift */; };
 		D510A90E275985B200829C0B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510A90D275985B200829C0B /* CustomTextField.swift */; };
+		D5384A8927601101007EC58F /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5384A8827601101007EC58F /* ColorPickerViewController.swift */; };
 		D5620ABA275EC9B300A9FAFE /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5620AB9275EC9B300A9FAFE /* UIColor + Extension.swift */; };
 		D59BA46B275813EE00A91AD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA46A275813EE00A91AD9 /* AppDelegate.swift */; };
 		D59BA46D275813EE00A91AD9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA46C275813EE00A91AD9 /* SceneDelegate.swift */; };
@@ -59,6 +60,7 @@
 		D5067229275C0EBA005BA547 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		D510A909275940E700829C0B /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
 		D510A90D275985B200829C0B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D5384A8827601101007EC58F /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		D5620AB9275EC9B300A9FAFE /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		D59BA467275813EE00A91AD9 /* OkToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OkToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59BA46A275813EE00A91AD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				D59BA4A027582A1300A91AD9 /* MainViewController.swift */,
 				D59BA4B42758402D00A91AD9 /* TaskViewController.swift */,
 				D5067214275B9E5F005BA547 /* CategoryViewController.swift */,
+				D5384A8827601101007EC58F /* ColorPickerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				D59BA4A727582D9700A91AD9 /* Constants.swift in Sources */,
 				D5D28DBE275AD057001A40D3 /* Utils.swift in Sources */,
 				D59BA475275813EE00A91AD9 /* OkToDo.xcdatamodeld in Sources */,
+				D5384A8927601101007EC58F /* ColorPickerViewController.swift in Sources */,
 				D59BA4A127582A1300A91AD9 /* MainViewController.swift in Sources */,
 				D5D28DC3275AE8C8001A40D3 /* UIViewController + Extension.swift in Sources */,
 				D59BA4B52758402D00A91AD9 /* TaskViewController.swift in Sources */,

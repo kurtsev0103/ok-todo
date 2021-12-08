@@ -43,7 +43,7 @@ class CategoryViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.title = kCategoriesString
-        navigationItem.setLeftBarButton(cancelButton, animated: true)
+        navigationItem.setLeftBarButton(cancelButton, animated: false)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
     }
     
@@ -78,6 +78,8 @@ class CategoryViewController: UITableViewController {
         
         if indexPath.row == 0 {
             cell.textLabel?.text = kAddNewCategoryString
+            cell.textLabel?.textColor = .black
+            cell.backgroundColor = .white
         } else {
             let category = categories[indexPath.row - 1]
             cell.textLabel?.text = category.name
@@ -93,10 +95,44 @@ class CategoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 0 {
-            // TODO: Add new category in New VC
+            let vc = ColorPickerViewController(context: context)
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
         } else {
             categoryDelegate?.getCategory(categories[indexPath.row - 1])
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row != 0
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let editAction = UIContextualAction(style: .normal, title: kEditString) { [weak self] (_, _, _)  in
+            guard let self = self else { return }
+            let category = self.categories[indexPath.row - 1]
+            let vc = ColorPickerViewController(context: self.context, category: category)
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+            tableView.setEditing(false, animated: true)
+        }
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: kDeleteString) { [weak self] (_, _, _)  in
+            guard let self = self else { return }
+            
+            self.showAlert(title: nil, message: kConfirmDeleteCategory) { [unowned self] in
+                self.context.delete(self.categories[indexPath.row - 1])
+                self.categories.remove(at: indexPath.row - 1)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            }
+        }
+        
+        editAction.backgroundColor = Colors.niceBlue
+        let congiguration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        congiguration.performsFirstActionWithFullSwipe = false
+        return congiguration
     }
 }
