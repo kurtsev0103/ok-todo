@@ -10,7 +10,17 @@ import UIKit
 class DatePickerView: UIView {
     
     var date: Date {
-        return datePicker.date
+        get {
+            return datePicker.date
+        }
+        set {
+            datePicker.setDate(newValue, animated: false)
+            guard #available(iOS 13.4, *) else {
+                textField.text = Utils.dateToString(date, "MMM d, yyyy")
+                return
+            }
+        }
+        
     }
     
     private lazy var label: UILabel = {
