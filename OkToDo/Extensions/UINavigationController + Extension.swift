@@ -20,7 +20,7 @@ extension UINavigationController {
         CATransaction.commit()
     }
     
-    func pushViewControllerWithCompletion(viewController: UIViewController, completion: @escaping () -> ()) {
+    func pushViewControllerWithCompletion(_ viewController: UIViewController, completion: @escaping () -> ()) {
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
         pushViewController(viewController, animated: true)

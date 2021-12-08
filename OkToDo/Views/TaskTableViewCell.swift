@@ -9,35 +9,26 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
     
-    private let containerView = UIView()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func configure(view: UIView) {
-        containerView.backgroundColor = Colors.mainWhite
-        setupConstraints(view)
-    }
-}
-
-// MARK: - Setup Constraints
-
-extension TaskTableViewCell {
-    
-    private func setupConstraints(_ view: UIView) {
-        addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = Colors.mainWhite
         
-        containerView.addSubview(view)
+        contentView.addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: self.topAnchor),
-            containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
-            view.heightAnchor.constraint(equalToConstant: 50),
-            view.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            view.heightAnchor.constraint(equalToConstant: 40),
+            view.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
         ])
     }
 }

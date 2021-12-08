@@ -12,16 +12,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        let userDefaults = UserDefaults.standard
-        let defaultValues = ["firstRun" : true]
-        userDefaults.register(defaults: defaultValues)
-        
-        if userDefaults.bool(forKey: "firstRun") {
-            setupFirstData()
-            saveContext()
-        }
-        
+        checkForFirstEntry()
         return true
     }
     
@@ -86,6 +77,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
+    
+    private func checkForFirstEntry() {
+        let userDefaults = UserDefaults.standard
+        let defaultValues = ["firstRun" : true]
+        userDefaults.register(defaults: defaultValues)
+        
+        if userDefaults.bool(forKey: "firstRun") {
+            setupFirstData()
+            saveContext()
+        }
+    }
+    
     private func setupFirstData() {
         let context = persistentContainer.viewContext
         
@@ -114,7 +117,6 @@ extension AppDelegate {
                 }
             }
         }
-        
         UserDefaults.standard.set(false, forKey: "firstRun")
     }
 }

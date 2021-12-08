@@ -15,11 +15,12 @@ class ToDoTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
     }
     
     func configure(task: Task) {
         textLabel?.text = task.name
-        detailTextLabel?.text = Utils.dateToString(date: task.date)
+        detailTextLabel?.text = Utils.dateToString(task.date)
         
         guard let category = task.category else {
             imageView?.image = nil
@@ -32,7 +33,7 @@ class ToDoTableViewCell: UITableViewCell {
         backgroundColor = UIColor(hex: category.backColor)
         textLabel?.textColor = UIColor(hex: category.textColor)
         detailTextLabel?.textColor = textLabel?.textColor
-                
+        
         guard let iconData = category.icon else {
             imageView?.image = nil
             return

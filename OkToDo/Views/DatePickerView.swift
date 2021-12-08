@@ -57,12 +57,16 @@ class DatePickerView: UIView {
         textField.tintColor = .clear
         textField.textAlignment = .center
         textField.layer.cornerRadius = 8
-        textField.text = Utils.dateToString(date: Date(), "MMM d, yyyy")
+        textField.text = Utils.dateToString(Date(), "MMM d, yyyy")
         textField.inputAccessoryView = toolbar
         textField.inputView = datePicker
         textField.delegate = self
         return textField
     }()
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,17 +78,13 @@ class DatePickerView: UIView {
         }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     @objc private func donePressed() {
-        textField.text = Utils.dateToString(date: date, "MMM d, yyyy")
+        textField.text = Utils.dateToString(date, "MMM d, yyyy")
         textField.resignFirstResponder()
     }
     
     @objc private func dateChanged() {
-        textField.text = Utils.dateToString(date: date, "MMM d, yyyy")
+        textField.text = Utils.dateToString(date, "MMM d, yyyy")
     }
     
 }
@@ -92,7 +92,7 @@ class DatePickerView: UIView {
 extension DatePickerView {
     
     private func setupAsHigherVersion() {
-        let stackView = UIStackView(subviews: [label, datePicker], axis: .horizontal)
+        let stackView = UIStackView([label, datePicker], .horizontal)
         
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -106,7 +106,7 @@ extension DatePickerView {
     }
     
     private func setupAsLesserVersion() {
-        let stackView = UIStackView(subviews: [label, textField], axis: .horizontal)
+        let stackView = UIStackView([label, textField], .horizontal)
         
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false

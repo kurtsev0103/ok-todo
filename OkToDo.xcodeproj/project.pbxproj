@@ -14,7 +14,6 @@
 		D506722A275C0EBA005BA547 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5067229275C0EBA005BA547 /* DatePickerView.swift */; };
 		D510A90A275940E700829C0B /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510A909275940E700829C0B /* UIStackView + Extension.swift */; };
 		D510A90E275985B200829C0B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510A90D275985B200829C0B /* CustomTextField.swift */; };
-		D5384A8927601101007EC58F /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5384A8827601101007EC58F /* ColorPickerViewController.swift */; };
 		D5620ABA275EC9B300A9FAFE /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5620AB9275EC9B300A9FAFE /* UIColor + Extension.swift */; };
 		D59BA46B275813EE00A91AD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA46A275813EE00A91AD9 /* AppDelegate.swift */; };
 		D59BA46D275813EE00A91AD9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA46C275813EE00A91AD9 /* SceneDelegate.swift */; };
@@ -31,6 +30,7 @@
 		D59BA4B52758402D00A91AD9 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59BA4B42758402D00A91AD9 /* TaskViewController.swift */; };
 		D5D28DBE275AD057001A40D3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D28DBD275AD057001A40D3 /* Utils.swift */; };
 		D5D28DC3275AE8C8001A40D3 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D28DC2275AE8C8001A40D3 /* UIViewController + Extension.swift */; };
+		D5E7EC1D2760FCFF00BEE1A1 /* CategoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E7EC1C2760FCFF00BEE1A1 /* CategoryDetailViewController.swift */; };
 		D5F1B1D0275CBECC007F2D50 /* UINavigationController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F1B1CF275CBECC007F2D50 /* UINavigationController + Extension.swift */; };
 		D5F1B1D2275CD864007F2D50 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5F1B1D1275CD864007F2D50 /* data.plist */; };
 /* End PBXBuildFile section */
@@ -60,7 +60,6 @@
 		D5067229275C0EBA005BA547 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		D510A909275940E700829C0B /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
 		D510A90D275985B200829C0B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		D5384A8827601101007EC58F /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		D5620AB9275EC9B300A9FAFE /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		D59BA467275813EE00A91AD9 /* OkToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OkToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59BA46A275813EE00A91AD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		D59BA4B42758402D00A91AD9 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		D5D28DBD275AD057001A40D3 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D5D28DC2275AE8C8001A40D3 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		D5E7EC1C2760FCFF00BEE1A1 /* CategoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewController.swift; sourceTree = "<group>"; };
 		D5F1B1CF275CBECC007F2D50 /* UINavigationController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController + Extension.swift"; sourceTree = "<group>"; };
 		D5F1B1D1275CD864007F2D50 /* data.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,7 +189,7 @@
 				D59BA4A027582A1300A91AD9 /* MainViewController.swift */,
 				D59BA4B42758402D00A91AD9 /* TaskViewController.swift */,
 				D5067214275B9E5F005BA547 /* CategoryViewController.swift */,
-				D5384A8827601101007EC58F /* ColorPickerViewController.swift */,
+				D5E7EC1C2760FCFF00BEE1A1 /* CategoryDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -359,13 +359,13 @@
 				D5067228275BD537005BA547 /* CustomLabel.swift in Sources */,
 				D59BA4A527582D6000A91AD9 /* ToDoTableViewCell.swift in Sources */,
 				D5F1B1D0275CBECC007F2D50 /* UINavigationController + Extension.swift in Sources */,
+				D5E7EC1D2760FCFF00BEE1A1 /* CategoryDetailViewController.swift in Sources */,
 				D5620ABA275EC9B300A9FAFE /* UIColor + Extension.swift in Sources */,
 				D506722A275C0EBA005BA547 /* DatePickerView.swift in Sources */,
 				D5067215275B9E5F005BA547 /* CategoryViewController.swift in Sources */,
 				D59BA4A727582D9700A91AD9 /* Constants.swift in Sources */,
 				D5D28DBE275AD057001A40D3 /* Utils.swift in Sources */,
 				D59BA475275813EE00A91AD9 /* OkToDo.xcdatamodeld in Sources */,
-				D5384A8927601101007EC58F /* ColorPickerViewController.swift in Sources */,
 				D59BA4A127582A1300A91AD9 /* MainViewController.swift in Sources */,
 				D5D28DC3275AE8C8001A40D3 /* UIViewController + Extension.swift in Sources */,
 				D59BA4B52758402D00A91AD9 /* TaskViewController.swift in Sources */,

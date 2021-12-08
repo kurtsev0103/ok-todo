@@ -15,14 +15,14 @@ class TaskViewController: UITableViewController {
     private let identifier = String(describing: TaskTableViewCell.self)
     
     private lazy var nameTextField: CustomTextField = {
-        let nameTextField = CustomTextField()
+        let nameTextField = CustomTextField(height: 40)
         nameTextField.placeholder = kPlaceholderName
         nameTextField.delegate = self
         return nameTextField
     }()
     
     private lazy var categoryLabel: CustomLabel = {
-        let categoryLabel = CustomLabel(kCategoryEmptyString)
+        let categoryLabel = CustomLabel(kCategoryEmptyString, height: 40)
         categoryLabel.textColor = Colors.placeholder
         return categoryLabel
     }()
@@ -33,13 +33,13 @@ class TaskViewController: UITableViewController {
     }()
     
     private lazy var saveButton: CustomButton = {
-        let saveButton = CustomButton(type: .saveButton)
+        let saveButton = CustomButton(type: .saveButton, height: 40)
         saveButton.addTarget(self, action: #selector(saveAction), for: .touchUpInside)
         return saveButton
     }()
     
     private lazy var cancelButton: CustomButton = {
-        let cancelButton = CustomButton(type: .cancelButton)
+        let cancelButton = CustomButton(type: .cancelButton, height: 40)
         cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
         return cancelButton
     }()
@@ -70,7 +70,7 @@ class TaskViewController: UITableViewController {
         let (isVerified, nameString) = Utils.validateStringLength(nameTextField.text)
         
         guard isVerified else {
-            showAlert(title: kAlertError, message: kTaskLengthError)
+            showAlert(kAlertError, kTaskLengthError)
             return
         }
         
@@ -82,18 +82,17 @@ class TaskViewController: UITableViewController {
         
         guard let navigationController = navigationController else { return }
         navigationController.popViewControllerWithCompletion {
-            navigationController.showAlert(title: kAlertTitleCongr, message: kAlertNewTaskMessage)
+            navigationController.showAlert(kAlertTitleCongr, kAlertNewTaskMessage)
         }
     }
     
     @objc private func cancelAction() {
         guard nameTextField.text?.isEmpty ?? true else {
-            showAlert(title: nil, message: kConfirmCancelMessage) { [unowned self] in
+            showConfirmAlert(nil, kConfirmCancelMessage) { [unowned self] in
                 navigationController?.popViewController(animated: true)
             }
             return
         }
-        
         navigationController?.popViewController(animated: true)
     }
 }
@@ -124,7 +123,7 @@ extension TaskViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 60
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -160,7 +159,7 @@ extension TaskViewController: CategoryViewControllerDelegate {
             return
         }
         
-        categoryLabel.textColor = Colors.niceDark
         categoryLabel.text = name
+        categoryLabel.textColor = Colors.niceDark
     }
 }

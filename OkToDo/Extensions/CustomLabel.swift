@@ -26,7 +26,12 @@ class CustomLabel: UILabel {
         tintColor = Colors.niceDark
         font = Fonts.avenir16
         textAlignment = .center
-        layer.cornerRadius = 20
+        
+    }
+    
+    convenience init(_ text: String, height: CGFloat) {
+        self.init(text)
+        layer.cornerRadius = height * 0.5
         clipsToBounds = true
     }
 }

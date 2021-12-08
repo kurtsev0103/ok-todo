@@ -9,7 +9,7 @@ import UIKit
 
 struct Utils {
     
-    static func dateToString(date: Date?, _ format: String = "dd.MM.yyyy") -> String? {
+    static func dateToString(_ date: Date?, _ format: String = "dd.MM.yyyy") -> String? {
         guard let date = date else { return nil }
         let formatter = DateFormatter()
         formatter.dateStyle = .short

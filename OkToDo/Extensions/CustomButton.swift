@@ -35,9 +35,7 @@ class CustomButton: UIButton {
         titleLabel?.shadowColor = Colors.niceDark
         titleLabel?.shadowOffset = CGSize(width: 4, height: 4)
         layer.borderColor = buttonColor.cgColor
-        layer.cornerRadius = 25
         layer.borderWidth = 3
-        clipsToBounds = true
         
         switch type {
         case .addButton:
@@ -50,6 +48,12 @@ class CustomButton: UIButton {
             setTitle(kCancelString, for: .normal)
             titleLabel?.font = Fonts.avenir20
         }
+    }
+    
+    convenience init(type: CustomButtonType, height: CGFloat) {
+        self.init(type: type)
+        layer.cornerRadius = height * 0.5
+        clipsToBounds = true
     }
     
     override open var isHighlighted: Bool {

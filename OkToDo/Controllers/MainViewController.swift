@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
     }()
     
     private lazy var addButton: CustomButton = {
-        let addButton = CustomButton(type: .addButton)
+        let addButton = CustomButton(type: .addButton, height: 50)
         addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
         return addButton
     }()
@@ -45,7 +45,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()
-        
         navigationItem.title = kMyTasksString
     }
     
@@ -79,11 +78,12 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // TODO: Show task in DetailViewController
+        print("TODO: Show task in DetailViewController")
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            showAlert(title: nil, message: kConfirmDeleteTask) { [unowned self] in
+            showConfirmAlert(nil, kConfirmDeleteTask) { [unowned self] in
                 context.delete(tasks[indexPath.row])
                 tasks.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -102,7 +102,6 @@ extension MainViewController: UITableViewDataSource {
         } else {
             tableView.restore()
         }
-        
         return tasks.count
     }
     

@@ -10,7 +10,9 @@ import UIKit
 extension UITableView {
     
     func showEmptyMessage(_ message: String) {
-        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        let rect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height)
+        let messageLabel = UILabel(frame: rect)
+        
         messageLabel.text = message
         messageLabel.numberOfLines = 0
         messageLabel.font = Fonts.avenir16

@@ -1,5 +1,5 @@
 //
-//  ColorPickerViewController.swift
+//  CategoryDetailViewController.swift
 //  OkToDo
 //
 //  Created by Oleksandr Kurtsev on 07/12/2021.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ColorPickerViewController: UIViewController {
+class CategoryDetailViewController: UIViewController {
     
     private var category: Category?
     private var textColor: UIColor
@@ -23,7 +23,7 @@ class ColorPickerViewController: UIViewController {
     }()
     
     private lazy var textField: CustomTextField = {
-        let textField = CustomTextField()
+        let textField = CustomTextField(height: 40)
         textField.placeholder = kCategoryPlaceholder
         textField.font = Fonts.avenir16
         return textField
@@ -48,13 +48,13 @@ class ColorPickerViewController: UIViewController {
     }()
     
     private lazy var saveButton: CustomButton = {
-        let saveButton = CustomButton(type: .saveButton)
+        let saveButton = CustomButton(type: .saveButton, height: 40)
         saveButton.addTarget(self, action: #selector(saveAction), for: .touchUpInside)
         return saveButton
     }()
     
     private lazy var cancelButton: CustomButton = {
-        let cancelButton = CustomButton(type: .cancelButton)
+        let cancelButton = CustomButton(type: .cancelButton, height: 40)
         cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
         return cancelButton
     }()
@@ -106,7 +106,7 @@ class ColorPickerViewController: UIViewController {
         let (isVerified, nameString) = Utils.validateStringLength(textField.text)
         
         guard isVerified else {
-            showAlert(title: kAlertError, message: kCategoryLengthError)
+            showAlert(kAlertError, kCategoryLengthError)
             return
         }
         
@@ -147,15 +147,13 @@ class ColorPickerViewController: UIViewController {
 
 // MARK: - Setup Constraints
 
-extension ColorPickerViewController {
+extension CategoryDetailViewController {
     
     private func setupConstraints() {
-        let horizontalStackView = UIStackView(subviews: [cancelButton, saveButton], axis: .horizontal, spacing: 10)
-        horizontalStackView.distribution = .fillEqually
-        
+        let horizontalStackView = UIStackView([cancelButton, saveButton], .horizontal, 10)
         let array = [segmentControl, textField, rSlider, gSlider, bSlider, horizontalStackView]
-        let verticalStackView = UIStackView(subviews: array, axis: .vertical, spacing: 10)
-        verticalStackView.alignment = .fill
+        let verticalStackView = UIStackView(array, .vertical, 10)
+        verticalStackView.distribution = .fill
         
         view.addSubview(verticalStackView)
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -166,8 +164,6 @@ extension ColorPickerViewController {
             verticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
             textField.heightAnchor.constraint(equalToConstant: 40),
-            cancelButton.heightAnchor.constraint(equalToConstant: 50),
-            saveButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 }

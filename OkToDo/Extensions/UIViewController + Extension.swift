@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(title: String?, message: String?, completion: @escaping () -> ()) {
+    func showConfirmAlert(_ title: String?, _ message: String?, completion: @escaping () -> () = {}) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: kAlertTitleCancel, style: .cancel)
@@ -22,9 +22,13 @@ extension UIViewController {
         present(alertController, animated: true)
     }
     
-    func showAlert(title: String?, message: String?) {
+    func showAlert(_ title: String?, _ message: String?, completion: @escaping () -> () = {}) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: kAlertTitleOK, style: .default)
+        
+        let okAction = UIAlertAction(title: kAlertTitleOK, style: .default) { (_) in
+            completion()
+        }
+        
         alertController.addAction(okAction)
         present(alertController, animated: true)
     }
