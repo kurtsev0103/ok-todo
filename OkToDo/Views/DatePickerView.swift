@@ -107,6 +107,7 @@ extension DatePickerView {
     
     private func setupAsLesserVersion() {
         let stackView = UIStackView([label, textField], .horizontal)
+        stackView.distribution = .fill
         
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -117,10 +118,7 @@ extension DatePickerView {
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            textField.heightAnchor.constraint(equalToConstant: 35),
-            textField.widthAnchor.constraint(equalToConstant: 115),
-            textField.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            textField.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            textField.widthAnchor.constraint(equalToConstant: 120),
         ])
     }
 }
