@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D5067213275B804B005BA547 /* UITableView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5067212275B804B005BA547 /* UITableView + Extension.swift */; };
 		D5067215275B9E5F005BA547 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5067214275B9E5F005BA547 /* CategoryViewController.swift */; };
-		D5067220275BC756005BA547 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D506721F275BC756005BA547 /* TaskTableViewCell.swift */; };
+		D5067220275BC756005BA547 /* StaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D506721F275BC756005BA547 /* StaticTableViewCell.swift */; };
 		D5067228275BD537005BA547 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5067227275BD537005BA547 /* CustomLabel.swift */; };
 		D506722A275C0EBA005BA547 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5067229275C0EBA005BA547 /* DatePickerView.swift */; };
 		D510A90A275940E700829C0B /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D510A909275940E700829C0B /* UIStackView + Extension.swift */; };
@@ -55,7 +55,7 @@
 /* Begin PBXFileReference section */
 		D5067212275B804B005BA547 /* UITableView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
 		D5067214275B9E5F005BA547 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		D506721F275BC756005BA547 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		D506721F275BC756005BA547 /* StaticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableViewCell.swift; sourceTree = "<group>"; };
 		D5067227275BD537005BA547 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		D5067229275C0EBA005BA547 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		D510A909275940E700829C0B /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				D59BA4A427582D6000A91AD9 /* ToDoTableViewCell.swift */,
-				D506721F275BC756005BA547 /* TaskTableViewCell.swift */,
+				D506721F275BC756005BA547 /* StaticTableViewCell.swift */,
 				D5067229275C0EBA005BA547 /* DatePickerView.swift */,
 			);
 			path = Views;
@@ -351,7 +351,7 @@
 			files = (
 				D59BA46B275813EE00A91AD9 /* AppDelegate.swift in Sources */,
 				D510A90E275985B200829C0B /* CustomTextField.swift in Sources */,
-				D5067220275BC756005BA547 /* TaskTableViewCell.swift in Sources */,
+				D5067220275BC756005BA547 /* StaticTableViewCell.swift in Sources */,
 				D59BA46D275813EE00A91AD9 /* SceneDelegate.swift in Sources */,
 				D59BA4B3275837B400A91AD9 /* CustomButton.swift in Sources */,
 				D510A90A275940E700829C0B /* UIStackView + Extension.swift in Sources */,

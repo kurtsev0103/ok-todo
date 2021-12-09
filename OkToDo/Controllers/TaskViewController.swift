@@ -13,7 +13,7 @@ class TaskViewController: UITableViewController {
     private var task: Task?
     private var category: Category?
     private let context: NSManagedObjectContext
-    private let identifier = String(describing: TaskTableViewCell.self)
+    private let identifier = String(describing: StaticTableViewCell.self)
     
     private lazy var nameTextField: CustomTextField = {
         let nameTextField = CustomTextField(height: 40)
@@ -58,7 +58,7 @@ class TaskViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(TaskTableViewCell.self, forCellReuseIdentifier: identifier)
+        tableView.register(StaticTableViewCell.self, forCellReuseIdentifier: identifier)
         tableView.separatorColor = .clear
         
         navigationItem.hidesBackButton = true
@@ -103,13 +103,14 @@ class TaskViewController: UITableViewController {
     }
     
     @objc private func cancelAction() {
-        guard nameTextField.text?.isEmpty ?? true else {
+        if (task != nil && task?.name != nameTextField.text) ||
+            (task == nil && nameTextField.text?.isEmpty == false) {
             showConfirmAlert(nil, kConfirmCancelMessage) { [unowned self] in
                 navigationController?.popViewController(animated: true)
             }
-            return
+        } else {
+            navigationController?.popViewController(animated: true)
         }
-        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -122,7 +123,7 @@ extension TaskViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? TaskTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? StaticTableViewCell else {
             return UITableViewCell()
         }
         

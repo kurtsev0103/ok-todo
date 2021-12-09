@@ -133,7 +133,7 @@ class CategoryViewController: UITableViewController {
         }
         
         deleteAction.backgroundColor = .red
-        editAction.backgroundColor = Colors.niceBlue
+        editAction.backgroundColor = .orange
         let congiguration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         congiguration.performsFirstActionWithFullSwipe = false
         return congiguration

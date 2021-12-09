@@ -39,10 +39,11 @@ let kAlertTitleOK           = "OK"
 let kAlertError             = "Error"
 let kAlertTitleConfirm      = "Confirm"
 let kAlertTitleCancel       = "Cancel"
+let kAlertTitleGallery      = "Gallery"
 let kAlertTitleCongr        = "Congratulations"
 let kAlertNewTaskMessage    = "You added a new task"
 let kTaskChangedMessage     = "You have changed your task"
-let kConfirmCancelMessage   = "The created task will be deleted. Do you really want to continue?"
+let kConfirmCancelMessage   = "Your changes will be lost. Do you really want to continue?"
 let kConfirmDeleteTask      = "Are you sure you want to delete the task? This action is irrevocable."
 let kConfirmDeleteCategory  = "Are you sure you want to delete a category? All your tasks with this category will become category-free."
 
@@ -52,3 +53,5 @@ let kCategoryLengthError    = "Category name cannot be less than 3 characters lo
 let kPlaceholderName        = "Write the name of the task"
 let kPlaceholderCategory    = "Select a task category"
 let kPlaceholderDate        = "Select a date:"
+
+let kTaskImagePlaceholder   = "ImagePlaceholder"
