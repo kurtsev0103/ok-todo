@@ -18,6 +18,25 @@ class ToDoTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let size = contentView.frame.height - 4
+        imageView?.frame = CGRect(x: 2, y: 2, width: size, height: size)
+        imageView?.layer.cornerRadius = size * 0.5
+        imageView?.layer.borderColor = Colors.niceBlue.cgColor
+        imageView?.layer.borderWidth = 2
+        imageView?.clipsToBounds = true
+        
+        textLabel?.frame.origin.x = 8
+        detailTextLabel?.frame.origin.x = 8
+        
+        if imageView?.image != nil {
+            textLabel?.frame.origin.x += size
+            detailTextLabel?.frame.origin.x += size
+        }
+    }
+    
     func configure(task: Task) {
         textLabel?.text = task.name
         detailTextLabel?.text = Utils.dateToString(task.date)

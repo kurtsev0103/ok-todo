@@ -8,12 +8,21 @@
 import UIKit
 import CoreData
 
-class CategoryDetailViewController: UIViewController {
+class CategoryDetailViewController: UITableViewController {
     
     private var category: Category?
     private var textColor: UIColor
     private var backColor: UIColor
+    private var categoryImage: UIImage?
     private let context: NSManagedObjectContext
+    private let identifier = String(describing: StaticTableViewCell.self)
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: kTaskImagePlaceholder)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
     private lazy var segmentControl: UISegmentedControl = {
         let segmentControl = UISegmentedControl(items: [kTextColorString, kBackColorString])
@@ -26,6 +35,7 @@ class CategoryDetailViewController: UIViewController {
         let textField = CustomTextField(height: 40)
         textField.placeholder = kCategoryPlaceholder
         textField.font = Fonts.avenir16
+        textField.delegate = self
         return textField
     }()
     
@@ -64,6 +74,11 @@ class CategoryDetailViewController: UIViewController {
         self.category = category
         textColor = UIColor(hex: category?.textColor) ?? .black
         backColor = UIColor(hex: category?.backColor) ?? .white
+        
+        if let data = category?.icon {
+            categoryImage = UIImage(data: data)
+        }
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -75,10 +90,16 @@ class CategoryDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Colors.mainWhite
         
-        setupConstraints()
         updateLabelColors()
         textField.text = category?.name
         setSlidersValuesFrom(color: textColor)
+        
+        if let categoryImage = categoryImage {
+            self.imageView.image = categoryImage
+        }
+        
+        tableView.separatorColor = .clear
+        tableView.register(StaticTableViewCell.self, forCellReuseIdentifier: identifier)
     }
     
     private func setupSlider(_ slider: UISlider, withColor color: UIColor) {
@@ -115,6 +136,7 @@ class CategoryDetailViewController: UIViewController {
         }
         
         category?.name = nameString
+        category?.icon = categoryImage?.pngData()
         category?.textColor = textColor.toHexString()
         category?.backColor = backColor.toHexString()
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
@@ -145,25 +167,98 @@ class CategoryDetailViewController: UIViewController {
     }
 }
 
-// MARK: - Setup Constraints
+// MARK: - UITableViewDataSource && UITableViewDelegate
 
 extension CategoryDetailViewController {
     
-    private func setupConstraints() {
-        let horizontalStackView = UIStackView([cancelButton, saveButton], .horizontal, 10)
-        let array = [segmentControl, textField, rSlider, gSlider, bSlider, horizontalStackView]
-        let verticalStackView = UIStackView(array, .vertical, 10)
-        verticalStackView.distribution = .fill
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? StaticTableViewCell else {
+            return UITableViewCell()
+        }
         
-        view.addSubview(verticalStackView)
-        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
+        switch indexPath.row {
+        case 0: cell.configure(view: imageView, height: 100)
+        case 1: cell.configure(view: textField)
+        case 2: cell.configure(view: segmentControl)
+        case 3: cell.configure(view: rSlider)
+        case 4: cell.configure(view: gSlider)
+        case 5: cell.configure(view: bSlider)
+        case 6: cell.configure(view: cancelButton)
+        case 7: cell.configure(view: saveButton)
+        default: break
+        }
         
-        NSLayoutConstraint.activate([
-            verticalStackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
-            verticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            verticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
-            textField.heightAnchor.constraint(equalToConstant: 40),
-        ])
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0: return 120
+        default: return 60
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 0 {
+            imageTapped()
+        }
+    }
+}
+
+// MARK: - Image Picker Avatar
+
+extension CategoryDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    private func imageTapped() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let photo = UIAlertAction(title: kAlertTitleGallery, style: .default) { [weak self] _ in
+            guard let self = self else { return }
+            self.chooseImagePicker(source: .photoLibrary)
+        }
+        
+        let remove = UIAlertAction(title: kDeleteString, style: .destructive) { [weak self] _ in
+            guard let self = self else { return }
+            self.imageView.image = UIImage(named: kTaskImagePlaceholder)
+            self.categoryImage = nil
+        }
+        
+        let cancel = UIAlertAction(title: kAlertTitleCancel, style: .cancel)
+        
+        actionSheet.addAction(photo)
+        actionSheet.addAction(remove)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true)
+    }
+
+    func chooseImagePicker(source: UIImagePickerController.SourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = source
+            present(imagePicker, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        imageView.image = info[.editedImage] as? UIImage
+        categoryImage = imageView.image
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension CategoryDetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
