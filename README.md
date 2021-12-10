@@ -4,9 +4,9 @@
 
 | Version | Obsługa orientacji | CoreData | Without Storyboard | Unit Tests |
 | :-----: | :----------------: | :------: | :----------------: | :--------: |
-| iOS 13.0+ | pionowa / pozioma | ✅ | ✅ | ❌ (TODO) |
+| iOS 13.0+ | pionowa / pozioma | ✅ | ✅ | ❌ |
 
-<img width="200" alt="img" src="https://user-images.githubusercontent.com/27446881/145282910-485afd83-7492-47cd-bce9-926058f1eb20.gif">
+<img width="200" alt="img" src="https://user-images.githubusercontent.com/27446881/145494393-bbaf7648-3f35-4f48-a3aa-396cd0d5257c.gif">
 
 ## 🎯 Napisz prostą aplikację TODO APP
 
@@ -30,6 +30,7 @@
  - Początkowe "kategorie" odpowiadają paragrafowi ```#11``` Wszystkie kolory są przestrzegane zgodnie z warunkami.
  - Wszystkie kategorie są przechowywane w CoreData. Można je odpowiednio usuwać i dodawać nowe.
  - Zarówno w kategoriach standardowych jak i nowych można wybrać dowolny kolor tekstu oraz kolor tła.
+ - W kategoriach standardowych i nowych można wybrać dowolną ikonę z galerii, jak również ją usunąć.
  - Zadania, które zostały już utworzone, można edytować, klikając na nie na liście wszystkich zadań.
  - Pole wyboru "data" podczas tworzenia zadania wygląda tak samo zarówno w systemie iOS 13.0, jak i iOS >= 13.4. 
     > W iOS < 13.4 DatePicker pojawia się w miejscu klawiatury, a w iOS >= 13.4 w nowym stylu popover.
